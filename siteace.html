@@ -1,0 +1,343 @@
+<head>
+  <title>siteace</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+
+<body class="grey lighten-4">
+</body>
+
+
+<template name="ApplicationLayout">
+	{{> yield "navbar"}}
+	<div class="container">
+		{{> yield "main"}}
+		{{> yield "comment"}}
+		{{> yield "recommended"}}
+	</div>
+</template>
+
+<template name="navbar">
+	
+	<div id="nav" class="grey lighten-4">
+        <div class="container">
+            <nav class="navbar-fixed flat grey lighten-4 purple-text" id="navBar">
+                <div class="nav-wrapper">
+                    <a href="/" class="brand-logo purple-text text-darken-2 truncate" title="Project for studying purposes">Site Ace</a>
+                    <a class="brand-logo center small-text2 purple-text hide-on-med-and-down" href="#" data-activates="themesMenu">Save your favorite link</a>
+                    <ul class="right">
+						<li id="login_button" class="js-login"><a class="dropdown-button purple-text js-login" href="#!">{{#if currentUser}}{{currentUser.username}}{{else}}Sign in{{/if}}<i class="material-icons right">perm_identity</i></a></li>
+						<li>			
+						    <div id="login-dialog">
+								<div class="container">
+									<div class="login" id="login_card">
+										<div class="row">
+											<div class="col s12 m3 right card-wrapper">
+												<div class="card white darken-1 card-login">
+													{{> Template.dynamic template=account_state}}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <nav id="navSearch" class="container lighten-5 grey flat">
+        <div class="row nav-wrapper">
+        	{{#if currentUser}}
+        	<div class="s2 m2 l4 col">
+                <ul class="left purple">
+                    <li>                        
+                        <a class="waves-effect waves-light js-toggle-website-form"><i class="material-icons">add</i></a>
+                    </li>
+                </ul>
+            </div>
+            {{/if}}
+            <div class="{{#if currentUser}}s8{{else}}s10{{/if}} m8 l4 col">
+        		<nav>
+				    <div class="nav-wrapper">
+				        <div class="input-field purple">
+				          {{> EasySearch.Input index=websitesIndex attributes=attributes}}
+				          <label for="search"><i class="material-icons">search</i></label>
+				          <i class="material-icons js-search-clear">close</i>
+				        </div>
+				    </div>
+				  </nav>
+            </div>
+
+            
+            <div class="s2 {{#if currentUser}}m2 l4{{else}}m4 l8{{/if}} col right-align">
+                <ul class="right">
+                    <li>                        
+                        <a class="waves-effect waves-light modal-trigger purple-text" href="#modal2">
+                        	<i class="material-icons">toc</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {{>specifiaction}}
+</template>
+
+<template name="main">
+		{{> website_form}}
+		{{> website_list}}
+</template>
+
+<template name="website_form">
+	{{#if currentUser}}
+		<div class="row">
+	    	<div class="l12 m12 s12 col">
+			    <div class="row">
+			    	<div class="l12 m12 s12 col">
+						<div id="website_form" class="hidden_div">
+							<form class="js-save-website-form">
+							  <div class="form-group">
+							    <label for="url">Site address *</label>
+							    <input type="text" class="form-control js-http-on" id="url" placeholder="http://www.mysite.com">
+							  </div>
+							  <div class="form-group">
+							    <label for="title">Title</label>
+							    <input type="text" class="form-control" id="title" placeholder="Mysite">
+							  </div>
+							  <div class="form-group">
+							    <label for="description">Description *</label>
+							    <input type="text" class="form-control" id="description" placeholder="I found this site really useful for ...">
+							  </div>
+
+								<p id="validnote">(*) - Please fill out all neccessery fields</p>
+
+							  <button type="submit" class="btn btn-default purple">Add site</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{/if}}
+</template>
+
+<!-- template that displays one website on individual page -->
+<template name="website_item_on_page">
+	{{> website_form}}
+	<div class="row">
+        <div class="l12 m12 s12 col">
+            <br>
+			    <div class="row">
+					<div class="l12 m12 s12 col">
+			    		{{>card_grid}}
+			    	</div>
+				</div>
+		</div>
+	</div>
+</template>
+
+
+<template name="comments">
+	<div class="container">
+		<h2>Comments</h2>
+		<div class="row">
+		    <div class="col s12 m12 l12">
+				<ul class="collection">
+					{{#each comments}}
+				    <li class="collection-item avatar">
+				      <img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="" class="circle">
+				      <span class="title"><strong>{{getUser userid}}</strong> <span class="text-muted">{{getDate createdOn}}</span></span>
+				      <p>{{message}}</p>
+				      <!--a href="#!" class="secondary-content"><i class="material-icons">close</i></a-->
+				    </li>
+					{{/each}}
+				  </ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m12 l12">
+				{{#if currentUser}}
+			  	<h4>Leave comment</h4>
+				  <div class="row">
+				    <form class="col s12 js-add-comment">
+				      <div class="row">
+				        <div class="input-field col s12">
+				          <textarea id="message" class="materialize-textarea"></textarea>
+				          <label for="textarea1">Message</label>
+				        </div>
+						<br/>
+						<button class="btn btn-default purple">Send Comment</button>
+				      </div>
+				    </form>
+				  </div>
+				{{else}}
+				<p>Only signed in users could leave comments</p>
+				{{/if}}
+		    </div>
+	  	</div>
+	</div>
+</template>
+<template name="recommended">
+	{{#if currentUser}}
+		<div class="row">
+	        <div class="m12 s12 col">
+	        	<h3>Recommended for you</h3>
+                <p>
+                	<strong>How it works:</strong> we recommend websites to users based on things they have up voted and commented on. E.g. if you up vote or comment site entitled ‘Tofu recipes’, it would recommend other sites with ‘tofu’ and ‘recipe’ in their titles or descriptions. 
+                </p>
+	            <br>
+			    <div class="row">
+					{{#each recommends}}
+				        <div class="l3 m6 s12 col">
+				    		{{>card_grid}}
+				    	</div>
+				    {{/each}}
+				</div>
+			</div>
+		</div>
+	{{/if}}
+</template>
+
+
+<!-- template that displays several website items -->
+<template name="website_list">
+	<div id="result_wrapper">
+		<div class="searchinfo">{{getText searchCount}}</div>
+	</div>
+	<div class="row">
+        <div class="m12 s12 col">
+            <br>
+		    <div class="row">
+				{{#EasySearch.Each index=websitesIndex}}
+					<div class="l3 m6 s12 col">
+						{{>card_grid}}
+					</div>
+			    {{/EasySearch.Each}}
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="card_grid">
+    <div class="card card-150 flat card-hover">
+        <div class="card-content valign-wrapper">
+            <div class="valign-bottom">
+                <p class="large-text">
+                  <a class="purple-text" title="{{title}}" href="{{url}}">{{title}}</a><br>
+                  <a class="small-text grey-text lighten-1" href="{{url}}">{{description}}</a>
+                  <div class="createdate">Added: {{getDate createdOn}}</div>
+                </p>
+            </div>
+        </div>
+        <div class="card-action">
+        	{{#if currentUser}}
+	        	<div class="chip white lighten-4" title="up votes">
+			   		<a class="activator purple-text js-upvote" href="#">
+			   			<i class="fa fa-thumbs-o-up"></i> {{vote_up}}
+			   		</a>
+				    &nbsp;
+		   			<a class="activator purple-text js-downvote" href="#">
+				    	<i class="fa fa-thumbs-o-down"></i> {{vote_down}}
+				    </a>
+				</div>
+		    {{else}}
+			    <div class="chip white grey-text lighten-4">
+			    	<a class="activator grey-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="You need sign in for vote">
+			   			<i class="fa fa-thumbs-o-up"></i> {{vote_up}}
+				   		&nbsp;
+				    	<i class="fa fa-thumbs-o-down"></i> {{vote_down}}
+				    </a>
+				</div>
+		    {{/if}}
+
+
+			<div title="items" class="lighten-4 right">
+            	<a class="right activator purple-text" href="/website/{{#if __originalId}}{{__originalId}}{{else}}{{_id}}{{/if}}"><span>details</span></a>
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<template name="card_list">
+	<div class="card flat" style="display: block;">
+        <div class="">
+            <div class="col l1 m2 s12">
+                <h5 class="lighten-3 black-text center-align">
+                    <a data-id="CSaAft6Nci" class="tooltipped black-text btnVote" data-tooltip="Vote this up" data-delay="50" data-position="bottom" href="#" data-tooltip-id="2f8d974a-ea00-a2ee-4d94-7cc14d3f7413"><i class="fa fa-caret-up fa-lg fa-fw"></i></a>
+                </h5>
+                <h6 class="center-align">
+                    0
+                </h6>
+            </div>
+            <div class="col l9 m10 s12">
+                <h5 class="large-text truncate">
+                    <a href="/bootstrap-template/ordbit-bootstrap-resume-theme" title="Free Bootstrap Resume Theme" class="truncate black-text">Orbit Resume Theme</a>
+                </h5>
+                <h6>
+                    <i class="mdi-editor-insert-comment"></i> <span data-disqus-url="http://www.bootstrapzero.com/bootstrap-template/ordbit-bootstrap-resume-theme" class="disqus-comment-count">0 Comments</span> &nbsp; 
+                    <!--
+                    <i class="mdi-social-share"></i> 212 shares &nbsp;-->
+                    <i class="mdi-device-access-time"></i> yesterday &nbsp; 
+                    <a class="grey-text text-lighten-1" href="/bootstrap-template/ordbit-bootstrap-resume-theme">themes.3rdwavemedia.com</a> 
+                </h6>
+            </div>
+            <div class="col l2 s12 m10 offset-m1">
+                <div class="card-image card-80">
+                    <a href="/bootstrap-template/ordbit-bootstrap-resume-theme"><img src="http://files.parsetfss.com/7217cef2-fd2f-4280-a291-186b8997ce2f/tfss-b588cdd6-c0f4-4238-a768-c075ecb9533f-th.jpg" alt="Orbit Resume Theme template" class="responsive-img"></a>
+                </div>
+            </div>
+        </div><!--/row-->
+    </div><!--/card-->
+</template>
+
+<template name="specifiaction">
+  <div id="modal2" class="modal modal-fixed-footer">
+    <div class="modal-content">
+		<h4>Specifiaction</h4>
+		<p>Make a social website aggregator using Meteor. A social website aggregator allows users to share, discuss and rank interesting webpages they have found. 
+		</p>
+		<h5>Instructions</h5>
+		You are to make a website aggregator application. The purpose of the application is to allow users to share, discuss and rate pages they find on the internet. You are provided with some starter code which displays a simple list of websites.
+
+	    <ol>
+	      	<li>
+			Users can register and login.
+			</li>
+			<li>
+			Users can post new websites if they are logged in. Websites posted by users should have an URL and a description.
+			</li>
+			<li>
+			Users can up and down vote webpages by clicking a plus or a minus button.
+			</li>
+			<li>
+			Websites should be listed with the most up voted site first. 
+			</li>
+			<li>
+			The listing page shows when the website was added and how many up and down votes it has.
+			</li>
+			<li>
+			Users can move to a detail page for a website (using routing). 
+			</li>
+			<li>
+			On the detail page, users can post comments about a webpage, and they are displayed below the description of the webpage.
+			</li>
+			You can gain a further 30% by implementing one or more of the following features:
+		</ol>
+		<p><h6><strong>Challenge 1: Automatic information</strong></h6>
+		Can you use the HTTP package for Meteor to pull in information about the posted web links automatically, so the user does not need to enter anything other than the URL? </p>
+		<p>
+		<h6><strong>Challenge 2: Search function</strong></h6>
+		Implement a search function that allows the user to search within the listed sites for key words
+		</p>
+		<p><h6><strong>Challenge 3: Website recommender</strong></h6>
+		Can you recommend websites to users based on things they have up voted and commented on? E.g. if I up vote a site entitled ‘Tofu recipes’, it would recommend other sites with ‘tofu’ and ‘recipe’ in their titles or descriptions. 
+		</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat js-close-spec">CLOSE</a>
+    </div>
+  </div>
+</template>

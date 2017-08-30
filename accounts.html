@@ -1,0 +1,141 @@
+<head></head>
+<body></body>
+<template name="account_signin">
+	<form class="account-signin">
+	    <div class="card-content">
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="useremail" type="text" name="loginUserEmail">
+					<label for="useremail" data-error="wrong" data-success="right">Username or Email</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="password" type="password" class="validate" name="loginPassword">
+					<label for="password">Password</label>
+				</div>
+			</div>
+	    </div>
+	    <div class="card-action">
+	    	<button class="btn waves-effect purple" type="submit" name="action" value="Login">Sign in</button>
+	    	<div class="row">
+				<div class="col s6 l6 m6"><a href="#" class="purple-text js-account-frgtpswd">Forgot password</a></div>
+				<div class="col s6 l6 m6 right"><a href="#" class="purple-text js-account-rgstr">Create account</a></div>
+			</div>
+	    </div>
+	</form>
+</template>
+
+<template name="account_register">
+  	<form class="account-register">
+	    <div class="card-content">
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="login-username" type="text" name="registerUsername">
+					<label for="login-username" data-error="wrong" data-success="right">Username</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="email" type="email" name="registerEmail">
+					<label for="email" data-error="wrong" data-success="right">Email</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="password" type="password" class="validate" name="registerPassword">
+					<label for="password">Password</label>
+				</div>
+			</div>
+	    </div>
+	    <div class="card-action">
+	    	<button class="btn waves-effect purple" type="submit" name="action" value="Register">Create account</button>
+	    	<div class="row">
+				<div class="col s6 l6 m6">&nbsp;</div>
+				<div class="col s6 l6 m6 right"><a href="#" class="purple-text js-account-signin">Sign In</a></div>
+			</div>
+	    </div>
+	</form>
+</template>
+
+<template name="account_signout">
+    <div class="card-action">
+    	<a class="waves-effect purple btn js-account-signout" type="submit">Sign Out</a>
+    	<div class="row">
+			<div class="col s6 l6 m6 left"><a href="#" class="purple-text js-account-cngpswd">Change password</a></div>
+		</div>
+    </div>
+</template>
+
+<template name="account_change_password">
+  	<form class="account_change_password">
+	    <div class="card-action">
+	    	<div class="row">
+				<div class="input-field col s12">
+					<input id="oldpassword" type="password" class="validate" name="oldPassword">
+					<label for="oldpassword">Current Password</label>
+				</div>
+				<div class="input-field col s12">
+					<input id="newpassword" type="password" class="validate" name="newPassword">
+					<label for="newpassword">New Password</label>
+				</div>
+			</div>
+	    	<button class="btn waves-effect purple" type="submit" name="action" value="Register">Change password</button>
+	    </div>
+	</form>
+</template>
+
+<template name="account_changed_password">
+    <div class="card-action">
+    	<div class="row">
+			<div class="col s12">
+				<p class="purple-text">Password changed</p>
+			</div>
+		</div>
+    </div>
+</template>
+
+<template name="account_forgot_password">
+	<form class="account-forgot-password">
+	    <div class="card-action">
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="email" type="email" name="registeredEmail">
+					<label for="email" data-error="wrong" data-success="right">Email</label>
+				</div>
+			</div>
+	    	<button type="submit" name="action" value="Register" class="btn waves-effect purple" >Reset password</button>
+	    	<div class="row">
+				<div class="col s6 l6 m6 left"><a href="#" class="purple-text js-account-signin">Sign in</a></div>
+			</div>
+	    </div>
+	</form>
+</template>
+
+
+<template name="account_forgot_setpassword">
+	{{#if resetPassword}}
+		<!-- Modal Structure -->
+		<div id="modal1" class="modal">
+			<div class="modal-content">
+				<div class="row">
+					<div class="col s12 l12 m12">
+						<div class="right"><a href="#"><i class="material-icons js-close-setpswd">close</i></a></div>
+					</div>
+				</div>
+			      <form class="account-forgot-setpassword">
+				    <div class="card-action">
+						<div class="input-field col s12">
+							<input id="newpassword" type="password" class="validate" name="newPassword">
+							<label for="newpassword">New Password</label>
+						</div>
+				    	<button type="submit" name="action" value="Register" class="btn waves-effect purple" >Set password</button>
+				    	<div class="row">
+							<div class="col s6 l6 m6 left"><a href="#" class="purple-text js-account-signin"></a></div>
+						</div>
+				    </div>
+				</form>
+			</div>
+		</div>
+	{{/if}}
+</template>

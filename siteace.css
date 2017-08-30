@@ -1,0 +1,724 @@
+/* CSS declarations go here */
+
+.hidden_div{
+	display:none;
+}
+#login-buttons{
+    line-height: 20px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+#validnote.novalid{
+	color:#d32f2f;
+}
+/*
+ol li,ul li{
+	background-color: #fff;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+	margin-bottom: 20px;
+	border-color: #ddd;
+	padding: 15px;
+}
+*/
+li:before {
+    padding-right: 8px;
+    color: blue; /* Or a color you prefer */
+}
+.createdate{
+	color:#999;
+	font-size:10px;
+	text-align:right;
+}
+#website_form{
+	margin-bottom:10px;
+	margin-top: 20px;
+}
+.searchinfo{
+	display:none;
+	padding:20px;
+	text-align:center;
+}
+.card{
+	overflow: hidden;
+}
+.chip{
+	color:purple;
+	font-size:15px;
+}
+.card-hover {
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    transition: all .5s ease-out
+}
+.card-hover:hover {
+    background-color: #4a148c;
+    color: #fff
+}
+.card-hover:hover a:not(.activator) {
+    color: #fff!important
+}
+.activator span{
+	vertical-align: middle;
+}
+.chip a {
+	margin-right:0 !important;
+}
+label{
+	font-size: 1.2rem;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+	border-bottom: 1px solid #9e9e9e;
+	box-shadow: 0 1px 0 0 #9e9e9e;
+}
+/* valid color */
+.input-field input[type=text].valid {
+	border-bottom: 1px solid #9e9e9e;
+	box-shadow: 0 0px 0 0 #9e9e9e;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+	border-bottom: 1px solid #d32f2f;
+	box-shadow: 0 0px 0 0 #d32f2f;
+}
+.large-text {
+    font-size: 1.44rem;
+    text-transform: none;
+    line-height: 1.1em
+}
+.small-text {
+    font-size: 12px!important;
+    text-transform: none;
+    display: block;
+    line-height:1.2em;
+    padding-top: 5px
+}
+.small-text2{
+    display: block;
+    font-size: 12px!important;
+    text-transform: none;
+}
+input{
+	border-bottom: 1px solid #4CAF50;
+    box-shadow: 0 1px 0 0 #4CAF50;
+}
+input:not([type]):focus:not([readonly]), 
+input[type=text]:focus:not([readonly]), 
+input[type=password]:focus:not([readonly]), 
+input[type=email]:focus:not([readonly]), 
+input[type=url]:focus:not([readonly]), 
+input[type=time]:focus:not([readonly]), 
+input[type=date]:focus:not([readonly]), 
+input[type=datetime-local]:focus:not([readonly]), 
+input[type=tel]:focus:not([readonly]), 
+input[type=number]:focus:not([readonly]), 
+input[type=search]:focus:not([readonly]), 
+textarea.materialize-textarea:focus:not([readonly])
+{
+	border-bottom: 1px solid #9e9e9e;
+	box-shadow: 0 0px 0 0 #9e9e9e;
+}
+
+input:not([type]):focus:not([readonly]) + label,
+input[type=text]:focus:not([readonly]) + label,
+input[type=password]:focus:not([readonly]) + label,
+input[type=email]:focus:not([readonly]) + label,
+input[type=url]:focus:not([readonly]) + label,
+input[type=time]:focus:not([readonly]) + label,
+input[type=date]:focus:not([readonly]) + label,
+input[type=datetime-local]:focus:not([readonly]) + label,
+input[type=tel]:focus:not([readonly]) + label,
+input[type=number]:focus:not([readonly]) + label,
+input[type=search]:focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label {
+    color: #9e9e9e;
+}
+input:not([type]).valid, input:not([type]):focus.valid,
+input[type=text].valid, input[type=text]:focus.valid,
+input[type=password].valid, input[type=password]:focus.valid,
+input[type=email].valid, input[type=email]:focus.valid,
+input[type=url].valid, input[type=url]:focus.valid,
+input[type=time].valid, input[type=time]:focus.valid,
+input[type=date].valid, input[type=date]:focus.valid,
+input[type=datetime-local].valid,
+input[type=datetime-local]:focus.valid,
+input[type=tel].valid,
+input[type=tel]:focus.valid,
+input[type=number].valid, 
+input[type=number]:focus.valid, 
+input[type=search].valid, 
+input[type=search]:focus.valid, 
+textarea.materialize-textarea.valid, 
+textarea.materialize-textarea:focus.valid {
+    border-bottom: 1px solid #9e9e9e;
+    box-shadow: 0 1px 0 0 #9e9e9e;
+}
+.card-login .card-action a,.card-login .card-action .btn {
+    text-transform: uppercase;
+    font-family: 'Montserrat', helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+	margin-right:0 !important;
+}
+.card-login .card-action .row .col:first-child{
+	padding-right: 0;
+} 
+.card-login .card-action .btn{
+	width:100%;
+}
+.card-login .card-action .row{
+	margin-top:20px;
+}
+.card-login .row{
+	margin-bottom: 0; 
+}
+.card-login .card-action .row .right{
+	text-align:right;
+}
+/*#login-dialog{
+	display: none;
+}
+.login {
+    position: absolute;
+    z-index: 1000;
+    top: 56px;
+    /* width: 90%; */
+    /* margin-left: 62px; 
+    right: 0;
+    margin-right: 64px;
+}
+*/
+.card-wrapper{
+	min-width:300px;
+}
+
+/*
+.card-content .row:first-child .col{
+	margin-top:0;
+}
+*/
+
+
+
+/*
+.input-field input[type=search]:focus+label i,.input-field input[type=search]:focus ~ .mdi-navigation-close,.input-field input[type=search]:focus ~ .material-icons{color:#444}
+.input-field input[type=search]+label{left:1rem}.input-field input[type=search] ~ .mdi-navigation-close,.input-field input[type=search] ~ .material-icons{
+	position:absolute;top:0;right:1rem;color:transparent;cursor:pointer;font-size:2rem;transition:.3s color
+	}*/
+a.login-link-text{
+	color:purple;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v6/zhcz-_WihjSQC0oHJ9TCYPk_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v6/IQHow_FEYlDC4Gzy_m8fcoWiMMZ7xLd792ULpGE4W_Y.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    background: #fff;
+    padding-top: 64px
+}
+
+@media only screen and (min-width:993px) {
+    .container {
+        width: 90%
+    }
+}
+
+.responsive_ad {
+    width: 340px;
+    height: 280px;
+    margin: 0 auto;
+    overflow: hidden
+}
+/*
+@media(min-width:993px) and (max-width:1200px) {
+    .responsive_ad,
+    .small_ad {
+        display: none!important
+    }
+}
+*/
+footer {
+    position: relative;
+    z-index: 2
+}
+
+a.active {
+    text-decoration: underline
+}
+
+.row .row {
+    margin-left: -12px;
+    margin-right: -12px
+}
+
+.press {
+    opacity: .3
+}
+
+#header {
+    min-height: 100%;
+    min-height: calc(100% - 1px);
+    width: 100%
+}
+
+#main {
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat
+}
+
+.bg-img {
+    background-image: url('/api/bg')
+}
+
+.bg-card>.card-content {
+    background-color: rgba(0, 0, 0, 0.4);
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.80) 50%, rgba(0, 0, 0, 0.80) 13%, rgba(0, 0, 0, 0) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(0, 0, 0, 0.80)), color-stop(13%, rgba(0, 0, 0, 0.80)), color-stop(100%, rgba(0, 0, 0, 0)));
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.80) 50%, rgba(0, 0, 0, 0.80) 13%, rgba(0, 0, 0, 0) 100%);
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0.80) 50%, rgba(0, 0, 0, 0.80) 13%, rgba(0, 0, 0, 0) 100%);
+    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.80) 50%, rgba(0, 0, 0, 0.80) 13%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.80) 50%, rgba(0, 0, 0, 0.80) 13%, rgba(0, 0, 0, 0) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000', GradientType=0)
+}
+
+#navBar {
+    padding-left: 15px;
+    padding-right: 11px
+}
+
+#nav {
+    position: fixed!important;
+    top: 0;
+    width: 100%;
+    z-index: 10
+}
+
+#nav.pin-top {
+    display: none
+}
+
+#nav .row {
+    margin-bottom: 0
+}
+
+#push {
+    min-height: 100%;
+    min-height: calc(100% - 1px);
+    position: relative;
+    top: 0;
+    z-index: -3
+}
+
+.tag {
+    padding: 3px 6px;
+    font-size: 13px;
+    line-height: 27px
+}
+
+.brand-logo img {
+    margin-top: -6px;
+    vertical-align: middle
+}
+
+nav .brand-logo {
+    font-size: 14px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Montserrat', sans-serif
+}
+
+.cursive {
+    font-family: 'Dancing Script', cursive, sans-serif;
+    font-size: 2.1rem;
+    text-transform: none
+}
+
+.favicon {
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%
+}
+
+.favicon-lg {
+    width: 42px;
+    height: 42px
+}
+
+.grayscale {
+    -webkit-filter: brightness(0.80) grayscale(94%) contrast(110%);
+    -moz-filter: brightness(0.80) grayscale(94%) contrast(110%);
+    filter: brightness(0.80) grayscale(94%) contrast(110%);
+    opacity: 1
+}
+
+.grayscale:hover {
+    -webkit-filter: initial;
+    -moz-filter: initial;
+    filter: initial;
+    opacity: 1;
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    transition: all 1s ease-out
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: 200
+}
+
+h2,
+h3 {
+    font-weight: 200
+}
+
+h6 {
+    text-transform: uppercase;
+    font-family: 'Montserrat', helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 13px
+}
+
+h5 {
+    font-size: 1.5rem
+}
+
+.card-content h6 {
+    font-size: 14px
+}
+
+footer.nav {
+    font-family: 'Roboto Condensed', sans-serif
+}
+
+
+.bold-text {
+    font-weight: 700
+}
+
+
+.btn-large {
+    font-size: 15px;
+    font-weight: bold
+}
+
+nav .dropdown-content.active {
+    top: 63px!important
+}
+
+.pagination {
+    display: inline-block
+}
+
+.pagination li {
+    vertical-align: middle
+}
+
+.pagination li.active {
+    background-color: #454545;
+    color: #eee
+}
+
+.card.flat,
+.card-panel.flat,
+nav.flat {
+    box-shadow: 0 0 0 0, 0 0 0 0
+}
+
+@media only screen and (max-width:992px) {
+    nav .brand-logo {
+        font-size: 1.5rem;
+        left:40px;
+    }
+}
+
+.card.small .card-action {
+    border-top: 1px solid rgba(160, 160, 160, 0.2);
+    padding: 12px
+}
+
+.card.card-150 .card-content {
+    height: 150px
+}
+
+.card-image.card-130 {
+    height: 130px;
+    overflow: hidden;
+    padding-top: 10px
+}
+
+.card-100 {
+    height: 100px;
+    overflow: hidden;
+    padding-top: 10px
+}
+
+.card-80 {
+    height: 80px;
+    overflow: hidden;
+    padding-top: 8px
+}
+
+.card-image.card-max-600 {
+    overflow: hidden;
+    height: 600px
+}
+
+.card-image.card-max-500 {
+    overflow: hidden;
+    height: 450px
+}
+
+
+nav ul li:hover,
+nav ul li.active {
+    background-color: none
+}
+
+nav ul li:hover a,
+nav ul li.active a {
+    font-size: 110%
+}
+
+.input-field label {
+    color: #444
+}
+
+.input-field input[type=text]:focus+label {
+    color: #444
+}
+
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #444;
+    box-shadow: 0 1px 0 0 #444
+}
+
+.input-field input[type=text].valid {
+    border-bottom: 1px solid #444;
+    box-shadow: 0 1px 0 0 #444
+}
+
+.input-field .prefix.active {
+    color: #444
+}
+
+.collapsible-body {
+    padding: 15px
+}
+
+.collapsible-body.active {
+    display: block!important
+}
+/***/
+#login-dialog input{
+	border-bottom: 1px solid #4CAF50;
+    box-shadow: 0 1px 0 0 #4CAF50;
+}
+#login-dialog input:not([type]):focus:not([readonly]), 
+#login-dialog input[type=text]:focus:not([readonly]), 
+#login-dialog input[type=password]:focus:not([readonly]), 
+#login-dialog input[type=email]:focus:not([readonly]), 
+#login-dialog input[type=url]:focus:not([readonly]), 
+#login-dialog input[type=time]:focus:not([readonly]), 
+#login-dialog input[type=date]:focus:not([readonly]), 
+#login-dialog input[type=datetime-local]:focus:not([readonly]), 
+#login-dialog input[type=tel]:focus:not([readonly]), 
+#login-dialog input[type=number]:focus:not([readonly]), 
+#login-dialog input[type=search]:focus:not([readonly]), 
+#login-dialog textarea.materialize-textarea:focus:not([readonly])
+{
+	border-bottom: 1px solid #9e9e9e;
+	box-shadow: 0 0px 0 0 #9e9e9e;
+}
+
+#login-dialog input:not([type]):focus:not([readonly]) + label,
+#login-dialog input[type=text]:focus:not([readonly]) + label,
+#login-dialog input[type=password]:focus:not([readonly]) + label,
+#login-dialog input[type=email]:focus:not([readonly]) + label,
+#login-dialog input[type=url]:focus:not([readonly]) + label,
+#login-dialog input[type=time]:focus:not([readonly]) + label,
+#login-dialog input[type=date]:focus:not([readonly]) + label,
+#login-dialog input[type=datetime-local]:focus:not([readonly]) + label,
+#login-dialog input[type=tel]:focus:not([readonly]) + label,
+#login-dialog input[type=number]:focus:not([readonly]) + label,
+#login-dialog input[type=search]:focus:not([readonly]) + label,
+#login-dialog textarea.materialize-textarea:focus:not([readonly]) + label {
+    color: #444;
+}
+#login-dialog input:not([type]).valid, input:not([type]):focus.valid,
+#login-dialog input[type=text].valid, input[type=text]:focus.valid,
+#login-dialog input[type=password].valid, input[type=password]:focus.valid,
+#login-dialog input[type=email].valid, input[type=email]:focus.valid,
+#login-dialog input[type=url].valid, input[type=url]:focus.valid,
+#login-dialog input[type=time].valid, input[type=time]:focus.valid,
+#login-dialog input[type=date].valid, input[type=date]:focus.valid,
+#login-dialog input[type=datetime-local].valid,
+#login-dialog input[type=datetime-local]:focus.valid,
+#login-dialog input[type=tel].valid,
+#login-dialog input[type=tel]:focus.valid,
+#login-dialog input[type=number].valid, 
+#login-dialog input[type=number]:focus.valid, 
+#login-dialog input[type=search].valid, 
+#login-dialog input[type=search]:focus.valid, 
+#login-dialog textarea.materialize-textarea.valid, 
+#login-dialog textarea.materialize-textarea:focus.valid {
+    border-bottom: 1px solid #9e9e9e;
+    box-shadow: 0 1px 0 0 #9e9e9e;
+}
+.card-login .card-action a,.card-login .card-action .btn {
+    text-transform: uppercase;
+    font-family: 'Montserrat', helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+	margin-right:0 !important;
+}
+.card-login .card-action .row .col:first-child{
+	padding-right: 0;
+} 
+/*
+.account-forgot-password .card-action .row:first-child{
+	margin-top:0;
+}*/
+.card-login .card-action .btn{
+	width:100%;
+}
+.card-login .card-action .row{
+	margin-top:20px;
+}
+.card-login .row{
+	margin-bottom: 0; 
+}
+.card-login .card-action .row .right{
+	text-align:right;
+}
+#login-dialog{
+	display: none;
+}
+.login {
+    position: absolute;
+    z-index: 1000;
+    top: 56px;
+    right: 0;
+}
+.card-wrapper{
+	min-width:300px;
+}
+#login-error{
+	color:#d32f2f;
+}
+#login-ok{
+	color:purple;
+}
+.no-error{
+	color:#00acc1 !important;
+}
+#modal1 {
+	display:block;
+    width: 300px;
+    background-color: #fff;
+}
+#login-dialog a {
+	padding:0;
+}
+#login-dialog a.btn{
+	margin-left:0;
+}
+#login-dialog{
+	line-height: 1.5
+}
+nav #login-dialog .input-field{
+	margin-top:1rem;
+}
+nav #login-dialog .input-field label{
+	top:0.8rem;
+	left:0.75rem;
+	color:#444;
+}
+nav #login-dialog input:not([type]), 
+nav #login-dialog input[type=text],
+nav #login-dialog input[type=password], 
+nav #login-dialog input[type=email], 
+nav #login-dialog input[type=url], 
+nav #login-dialog input[type=time], 
+nav #login-dialog input[type=date], 
+nav #login-dialog input[type=datetime-local], 
+nav #login-dialog input[type=tel], 
+nav #login-dialog input[type=number], 
+nav #login-dialog input[type=search], 
+nav #login-dialog textarea.materialize-textarea {
+	height:3rem;
+	padding:0;
+    border-bottom: 1px solid #9e9e9e;
+    border-radius: 0;
+}
+nav #login-dialog .input-field input:focus, 
+nav #login-dialog .input-field input[type=text]:valid, 
+nav #login-dialog .input-field input[type=password]:valid, 
+nav #login-dialog .input-field input[type=email]:valid, 
+nav #login-dialog .input-field input[type=url]:valid, 
+nav #login-dialog .input-field input[type=date]:valid {
+    border-bottom: 1px solid #9e9e9e;
+    box-shadow: none;
+}
+nav #login-dialog .input-field label.active{
+	color:#444;
+	transform:translateY(-140%);
+	-webkit-transform:translateY(-140%);
+}
+nav #login-dialog .input-field input[type=text]:focus{
+	border-bottom:1px solid #444;
+	box-shadow: 0 1px 0 0 #444;
+}
+.account-forgot-password .row:first-child{
+	margin-top:0
+}
+#modal1 a{
+	color:#444;
+	text-align: right;
+}
+#modal1 .btn{
+    margin-top: 15px;
+}
+#modal1 .row{
+	margin-bottom:0;
+}
+#modal1 .input-field{
+	margin-top:0;
+}
+#modal1 .btn{
+	width:100%;
+	text-transform: uppercase;
+    font-family: 'Montserrat', helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    margin-right: 0 !important;
+}
+.account-forgot-password .btn{
+    margin-top: 15px;
+}
